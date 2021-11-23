@@ -12,3 +12,4 @@ def hero_stats():
     if hero_level == 1:
         hero_dexterity == hero_base
 
+#Hero
