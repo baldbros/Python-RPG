@@ -1,15 +1,23 @@
-hero_base_level = 1
-hero_base_strength = 5
-hero_base_dexterity = 5
-hero_level = input()
-def enemy():
-    print('   @ \n / | \ \n  / \ ')
+import json 
 
-def hero():
-    print(' _\|/^ \n (_oo \n   | \n / | \ \n   | \n   LL')
+data = json.load(open("data.txt"))
 
-def hero_stats():
-    if hero_level == 1:
-        hero_dexterity == hero_base
+def exp_gain():
+    data['hero_stats']['experience'] += 1
+    for level in data['level_threshold']: 
+        if data['hero_stats']['experience'] == data['level_threshold'][level]:
+            print('You have reached ' + str(level) + '!!')
 
-#Hero
+print(data['hero_stats']['experience'])
+
+while True: 
+    exp_gained = input()
+    if exp_gained == "yes":
+        exp_gain()
+        print(data['hero_stats']['experience'])
+
+    
+    json.dump(data, open("data.txt", "w"))
+
+   
+    
